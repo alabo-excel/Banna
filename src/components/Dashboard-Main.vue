@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="w-full absolute top-0 bg-white">
-      <HeaderNav :download="download" />
+      <HeaderNav :designName="designName" :download="download" />
     </div>
     <div class="flex">
       <LeftBar
@@ -15,35 +15,29 @@
       <div class="bg-white mt-20 w-full ounded-2xl workspace">
         <div
           id="design"
-          :class="designBg"
-          class="border-2 border-transparent hover:border-blue-500 mt-16  h-80 w-9/12 mx-auto"
+          :class="designBg, designBorder"
+          class="border-8 border-transparent mt-16  h-80 w-9/12 mx-auto"
         >
           <div class="text-center p-4 font-extrabold ">
-            <h1 id="title" class="text-1xl " :class="designText">
+            <h1 id="title" class="text-1xl mt-28 break-all" :class="designText">
               {{ designTitle }}
             </h1>
           </div>
-          <div class="m-2">
-            <img
-              id="img1"
-              :src="designImg"
-              class="mx-auto"
-              width="400"
-              height="450"
-              alt="img"
-            />
-          </div>
-          <div class="float-right mr-5">
+          <!-- <div class="m-2">
+            <img id="output" class="mx-auto" width="400" alt="img" />
+          </div> -->
+          <div class="float-right mr-5 py-10">
             <p :class="designText" class="text-sm">By {{ designAuthor }}</p>
           </div>
-          <div id="powered" class="flex m-2 mt-10">
+          <div id="powered" class="flex m-2 relative top-20">
             <img width="15" src="../assets/hashnode.png" alt="" />
             <p class="text-xs pl-1">Powered by Hashnode</p>
           </div>
         </div>
       </div>
     </div>
-    <div id="preview"></div>
+    <!-- <div id="preview"></div> -->
+    <img src="" class="img" />
   </div>
 </template>
 
@@ -57,9 +51,10 @@ export default {
     LeftBar,
     HeaderNav
   },
-  props: ["designTitle", "designAuthor", "designImg", "designBg", "designText"],
+  props: ["designTitle", "designAuthor", "designBorder", "designBg", "designText"],
 
   setup() {
+    const designName = ref("Untitled");
     const growTitle = e => {
       if (document.getElementById("title").classList[0] === "text-1xl") {
         document.getElementById("title").classList.remove("text-1xl");
@@ -103,17 +98,22 @@ export default {
         document.getElementById("title").classList.add("italic");
       }
     };
-          var getCanvas;
-
     const download = () => {
+      var getCanvas;
       var element = document.getElementById("design");
       html2canvas(element, {
         onrendered: function(canvas) {
-          document.getElementById("preview").append(canvas);
+          // document.getElementById('preview').append(canvas)
           getCanvas = canvas;
+          var link = document.createElement("a");
+          link.download = designName.value + ".jpg";
+          link.href = getCanvas.toDataURL();
+          link.click();
         }
+        
       });
     };
+
     return {
       growTitle,
       watermark,
@@ -121,7 +121,8 @@ export default {
       textRight,
       underline,
       italics,
-      download
+      download,
+      designName
     };
   }
 };

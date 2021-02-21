@@ -11,23 +11,18 @@
         <span class="material-icons">keyboard_arrow_down</span>
       </div>
       <div @click="download">
-        <span class="material-icons hover:bg-gray-300 p-1 rounded-full">download</span>
+        <span class="material-icons hover:bg-gray-300 p-1 rounded-full"
+          >download</span
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
-
 export default {
   name: "HeaderNav",
-  props:['download'],
-  setup() {
-    const designName = ref("Untitled");
-
-    return { designName };
-  }
+  props: ["download", "designName"],
 };
 </script>
 

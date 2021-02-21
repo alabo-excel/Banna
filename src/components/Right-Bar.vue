@@ -1,6 +1,13 @@
 <template>
   <div class="flex w-screen">
-    <Dashboard class="w-full" :designText="designText" :designImg="designImg" :designBg="designBg" :designAuthor="designAuthor" :designTitle="designTitle" />
+    <Dashboard
+      class="w-full"
+      :designText="designText"
+      :designBorder="designBorder"
+      :designBg="designBg"
+      :designAuthor="designAuthor"
+      :designTitle="designTitle"
+    />
     <div class="shadow-lg p-8 pt-20 h-screen ml-8">
       <div class="mb-3">
         <p>Title:</p>
@@ -25,7 +32,14 @@
         <input
           v-model="designBg"
           type="text"
-          placeholder="eg #FFFFFF"
+          class="rounded-md p-1"
+        />
+      </div>
+      <div class="my-3">
+        <p>Border Color:</p>
+        <input
+          v-model="designBorder"
+          type="text"
           class="rounded-md p-1"
         />
       </div>
@@ -34,14 +48,18 @@
         <input
           v-model="designText"
           type="text"
-          placeholder="eg #FFFFFF"
           class="rounded-md p-1"
         />
       </div>
-      <div class="my-3">
+      <!-- <div class="my-3">
         <p>Image URL:</p>
-        <input v-model="designImg" type="text" class="rounded-md p-1" />
-      </div>
+        <input
+          type="file"
+          accept="image/*"
+          class="rounded-md p-1"
+          @change="designImg(e)"
+        />
+      </div> -->
     </div>
   </div>
 </template>
@@ -59,14 +77,20 @@ export default {
     const designAuthor = ref("John doe");
     const designBg = ref("bg-blue-300");
     const designText = ref("text-white");
-    const designImg = ref("https://www.fullstackpython.com/img/logos/git.png");
+    const designBorder = ref('border-blue-500')
+
+    // const designImg = (e) => {
+    //   var image = document.getElementById("output");
+    //   image.src = URL.createObjectURL(event.target.files[0]);
+    //   console.log(image)
+    // };
 
     return {
       designTitle,
       designBg,
       designAuthor,
       designText,
-      designImg
+      designBorder
     };
   }
 };
