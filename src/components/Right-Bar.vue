@@ -1,5 +1,8 @@
 <template>
   <div class="lg:flex w-screen">
+
+    <!-- dashboard component -->
+
     <Dashboard
       class="w-full"
       :designText="designText"
@@ -8,47 +11,50 @@
       :designAuthor="designAuthor"
       :designTitle="designTitle"
     />
+
+    <!-- Right sidebar component -->
+
     <div class="rightbar shadow-lg p-8 pt-20 h-screen ml-8">
-      <div class="mb-3">
+      <div class="my-4">
         <p>Title:</p>
         <input
           v-model="designTitle"
           type="text"
           placeholder="Enter your article title"
-          class="rounded-md p-1"
+          class="rounded-md p-1 border-b-2 border-black bg-transparent"
         />
       </div>
-      <div class="my-3">
+      <div class="my-4">
         <p>Author Name:</p>
         <input
           v-model="designAuthor"
           type="text"
           placeholder="Enter your name"
-          class="rounded-md p-1"
+          class="rounded-md p-1 border-b-2 border-black bg-transparent"
         />
       </div>
-      <div class="my-3">
+      <div class="my-4">
         <p>Background Color:</p>
         <input
           v-model="designBg"
           type="text"
-          class="rounded-md p-1"
+          class="rounded-md p-1 border-b-2 border-black bg-transparent"
         />
       </div>
-      <div class="my-3">
+      <div class="my-4">
         <p>Border Color:</p>
         <input
           v-model="designBorder"
           type="text"
-          class="rounded-md p-1"
+          class="rounded-md p-1 border-b-2 border-black bg-transparent"
         />
       </div>
-      <div class="my-3">
+      <div class="my-4">
         <p>Text Color:</p>
         <input
           v-model="designText"
           type="text"
-          class="rounded-md p-1"
+          class="rounded-md p-1 border-b-2 border-black bg-transparent"
         />
       </div>
       <!-- <div class="my-3">

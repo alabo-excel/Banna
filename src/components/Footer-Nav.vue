@@ -1,4 +1,6 @@
 <template>
+  <!-- footer component -->
+
   <div class="hello">
     <div class="flex absolute inset-x-0 bottom-0 justify-center pb-3">
       <p>Made with</p>

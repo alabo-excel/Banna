@@ -1,10 +1,6 @@
 <template>
+<!-- left sidebar -->
   <div class="p-8 h-screen pt-20 rounded-md shadow-lg mr-8">
-    <!-- <div class="mb-2">
-      <span class="material-icons hover:bg-gray-300 rounded-full p-1"
-        >photo_camera</span
-      >
-    </div> -->
     <div class="my-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
         >wallpaper</span
@@ -35,21 +31,6 @@
         >format_italic</span
       >
     </div>
-    <!-- <div class="my-3">
-      <span class="material-icons hover:bg-gray-300 rounded-full p-1"
-        >margin</span
-      >
-    </div>
-    <div class="my-3">
-      <span class="material-icons hover:bg-gray-300 rounded-full p-1"
-        >undo</span
-      >
-    </div>
-    <div class="my-3">
-      <span class="material-icons hover:bg-gray-300 rounded-full p-1"
-        >redo</span
-      >
-    </div> -->
     <div @click="watermark" class="mt-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
         >highlight</span

@@ -1,11 +1,10 @@
 <template>
-    <div class="p-1 px-12 shadow-md flex">
-        <img src="../assets/logo.png" height="50" width="60" alt="">
-    </div>
+  <!-- Home apge navigation bar -->
+  <div class="p-1 px-12 shadow-md flex">
+    <img src="../assets/logo.png" height="50" width="60" alt="" />
+  </div>
 </template>
 
 <script>
-export default {
-    
-}
+export default {};
 </script>
