@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-screen">
+  <div class="lg:flex w-screen">
     <Dashboard
       class="w-full"
       :designText="designText"
@@ -8,7 +8,7 @@
       :designAuthor="designAuthor"
       :designTitle="designTitle"
     />
-    <div class="shadow-lg p-8 pt-20 h-screen ml-8">
+    <div class="rightbar shadow-lg p-8 pt-20 h-screen ml-8">
       <div class="mb-3">
         <p>Title:</p>
         <input
@@ -97,4 +97,9 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 650px) {
+  .rightbar{
+    display: none;
+  }
+}
 </style>

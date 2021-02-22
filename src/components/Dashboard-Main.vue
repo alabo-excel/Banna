@@ -3,8 +3,8 @@
     <div class="w-full absolute top-0 bg-white">
       <HeaderNav :designName="designName" :download="download" />
     </div>
-    <div class="flex">
-      <LeftBar
+    <div class="lg:flex">
+      <LeftBar id="leftbar"
         :growTitle="growTitle"
         :watermark="watermark"
         :textLeft="textLeft"
@@ -16,10 +16,10 @@
         <div
           id="design"
           :class="designBg, designBorder"
-          class="border-8 border-transparent mt-16  h-80 w-9/12 mx-auto"
+          class="border-8 border-transparent mt-16 h-80 lg:w-9/12 mx-auto"
         >
           <div class="text-center p-4 font-extrabold ">
-            <h1 id="title" class="text-1xl mt-28 break-all" :class="designText">
+            <h1 id="title" class="text-1xl mt-20 px-14 break-all" :class="designText">
               {{ designTitle }}
             </h1>
           </div>
@@ -167,5 +167,13 @@ export default {
 <style scoped>
 .workspace {
   height: 28rem;
+}
+@media (max-width: 650px) {
+  #leftbar{
+    display: none;
+  }
+  .workspace {
+  height: 23rem;
+}
 }
 </style>
