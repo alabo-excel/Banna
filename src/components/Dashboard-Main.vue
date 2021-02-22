@@ -12,7 +12,7 @@
         :underline="underline"
         :italics="italics"
       />
-      <div class="bg-white mt-20 w-full ounded-2xl workspace">
+      <div class="bg-white mt-24 w-full ounded-2xl workspace">
         <div
           id="design"
           :class="designBg, designBorder"
