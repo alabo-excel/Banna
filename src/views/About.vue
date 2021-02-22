@@ -1,5 +1,20 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <MainNav />
+    <HomeMain />
+    <FooterNav />
   </div>
 </template>
+<script>
+import HomeMain from '../components/HomeMain'
+import FooterNav from '../components/Footer-Nav'
+import MainNav from '../components/Main-Nav'
+
+export default {
+  components:{
+    HomeMain,
+    FooterNav,
+    MainNav
+  }
+}
+</script>

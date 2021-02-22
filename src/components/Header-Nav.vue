@@ -10,10 +10,11 @@
         />
         <span class="material-icons">keyboard_arrow_down</span>
       </div>
-      <div @click="download">
-        <span class="material-icons hover:bg-gray-300 p-1 rounded-full"
+      <div @click="download" class="flex hover:bg-gray-300 p-2 rounded-md">
+        <span class="material-icons "
           >download</span
         >
+        <p class="my-auto">Download</p>
       </div>
     </div>
   </div>
@@ -22,7 +23,7 @@
 <script>
 export default {
   name: "HeaderNav",
-  props: ["download", "designName"],
+  props: ["download", "designName"]
 };
 </script>
 
