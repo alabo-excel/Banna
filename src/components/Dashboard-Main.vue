@@ -26,7 +26,7 @@ f<template>
 
         <div
           id="design"
-          :class="(designBg, designBorder)"
+          :class="designBg, designBorder"
           class="border-8 border-transparent mt-16 h-80 lg:w-9/12 mx-auto"
         >
           <div class="text-center p-4 font-extrabold ">
