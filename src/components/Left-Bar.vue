@@ -13,27 +13,27 @@
     </div>
     <div @click="reduceTitle" class="my-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
-        >text_format</span
+        >format_size</span
       >
     </div>
     <div @click="textLeft" class="my-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
-        >keyboard_arrow_left</span
+        >format_align_left</span
       >
     </div>
     <div @click="textRight" class="my-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
-        >keyboard_arrow_right</span
+        >format_align_right</span
       >
     </div>
     <div  @click="addtopMargin" class="my-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
-        >margin</span
+        >vertical_align_top</span
       >
     </div>
     <div @click="reducetopMargin" class="my-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
-        >padding</span
+        >vertical_align_bottom</span
       >
     </div>
     <div @click="italics" class="my-3">
