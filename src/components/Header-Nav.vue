@@ -1,6 +1,5 @@
 <template>
   <!-- dashboard header component -->
-
   <div class="hello shadow-lg">
     <div class="flex justify-between p-1 pl-4 pr-8">
       <img src="../assets/logo.png" height="50" width="60" alt="" />

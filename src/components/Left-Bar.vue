@@ -1,12 +1,17 @@
 <template>
 <!-- left sidebar -->
-  <div class="p-8 h-screen pt-20 rounded-md shadow-lg mr-8">
+  <div @click="addImg" class="p-8 h-screen pt-20 rounded-md shadow-lg mr-8">
     <div class="my-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
         >wallpaper</span
       >
     </div>
     <div @click="growTitle" class="my-3">
+      <span class="material-icons hover:bg-gray-300 rounded-full p-1"
+        >text_format</span
+      >
+    </div>
+    <div @click="reduceTitle" class="my-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
         >text_format</span
       >
@@ -21,9 +26,14 @@
         >keyboard_arrow_right</span
       >
     </div>
-    <div @click="underline" class="my-3">
+    <div  @click="addtopMargin" class="my-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
-        >format_underline</span
+        >margin</span
+      >
+    </div>
+    <div @click="reducetopMargin" class="my-3">
+      <span class="material-icons hover:bg-gray-300 rounded-full p-1"
+        >padding</span
       >
     </div>
     <div @click="italics" class="my-3">
@@ -40,8 +50,10 @@
 </template>
 
 <script>
+
 export default {
-  props: ['growTitle', 'watermark', 'textLeft', 'textRight', 'underline', 'italics']
+  props: ['growTitle', 'reducetopMargin', 'addtopMargin', 'reduceTitle', 'watermark', 'textLeft', 'textRight', 'italics', 'addImg'],
+
 };
 </script>
 

@@ -15,8 +15,11 @@ f<template>
         :watermark="watermark"
         :textLeft="textLeft"
         :textRight="textRight"
-        :underline="underline"
+        :reduceTitle="reduceTitle"
+        :addtopMargin="addtopMargin"
+        :reducetopMargin="reducetopMargin"
         :italics="italics"
+        :addImg="addImg"
       />
 
       <!-- Design playground -->
@@ -27,39 +30,39 @@ f<template>
         <div
           id="design"
           :class="designBg, designBorder"
-          class="border-8 border-transparent mt-16 h-80 lg:w-9/12 mx-auto"
+          class="border-8 border-transparent mt-16 overflow-hidden h-80 lg:w-9/12 mx-auto"
         >
           <div class="text-center p-4 font-extrabold ">
             <h1
               id="title"
-              class="text-1xl break-normal mt-16 px-14"
+              class="text-1xl break-normal px-14"
               :class="designText"
             >
               {{ designTitle }}
             </h1>
           </div>
-          <!-- <div class="m-2">
-            <img id="output" class="mx-auto" width="400" alt="img" />
-          </div> -->
-          <div class="float-right mr-5 py-10">
-            <p :class="designText" class="text-sm">By {{ designAuthor }}</p>
+          <div class="m-2 flex justify-evenly" id="images"></div>
+          <div class="float-right mr-5 py-4">
+            <p v-if="designAuthor === ''"></p>
+            <p v-else :class="designText" class="text-sm">By {{ designAuthor }}</p>
           </div>
-          <div id="powered" class="flex m-2 relative top-20">
+          <div v-if="designAuthor === ''"></div>
+          <div v-else id="powered" class="flex m-2 relative top-20">
             <img width="15" src="../assets/hashnode.png" alt="" />
-            <p class="text-xs pl-1">Powered by Hashnode</p>
+            <p :class="designText" class="text-xs pl-1">Powered by Hashnode</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Modal component -->
+    <!-- Successfull Modal component -->
 
     <div id="modal" class="fixed hidden z-10 inset-0 overflow-y-auto">
       <div
         class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
       >
         <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-          <div class="absolute inset-0 bg-gray-900 opacity-75"></div>
+          <div class="absolute inset-0 bg-gray-900 opacity-80"></div>
         </div>
 
         <span
@@ -127,18 +130,16 @@ export default {
     const designName = ref("Untitled");
 
     // increase font size
-
+    let size = 20;
     const growTitle = e => {
-      if (document.getElementById("title").classList[0] === "text-1xl") {
-        document.getElementById("title").classList.remove("text-1xl");
-        document.getElementById("title").classList.add("text-2xl");
-      } else if (document.getElementById("title").classList[0] === "text-2xl") {
-        document.getElementById("title").classList.remove("text-2xl");
-        document.getElementById("title").classList.add("text-3xl");
-      } else {
-        document.getElementById("title").classList.remove("text-3xl");
-        document.getElementById("title").classList.add("text-4xl");
-      }
+      size++;
+      document.getElementById("title").style.fontSize = size + "px";
+    };
+
+    // Decrease font size
+    const reduceTitle = () => {
+      size--;
+      document.getElementById("title").style.fontSize = size + "px";
     };
 
     // hide or show watermark
@@ -162,23 +163,12 @@ export default {
       document.getElementById("title").classList.add("text-right");
     };
 
-    // underline text
-    const underline = () => {
-      console.log();
-
-      if (document.getElementById("title").classList[2] === "underline") {
-        document.getElementById("title").classList.remove("underline");
-      } else {
-        document.getElementById("title").classList.add("underline");
-      }
-    };
-
     // make text italic
     const italics = () => {
-      if (document.getElementById("title").classList[2] === "italic") {
-        document.getElementById("title").classList.remove("italic");
+      if (document.getElementById("title").style.fontStyle != "italic") {
+        document.getElementById("title").style.fontStyle = "italic";
       } else {
-        document.getElementById("title").classList.add("italic");
+        document.getElementById("title").style.fontStyle = "";
       }
     };
 
@@ -206,16 +196,42 @@ export default {
       document.getElementById("modal").classList.add("hidden");
     };
 
+    // Add margin top
+    let marginTop = 10;
+    const addtopMargin = () => {
+      marginTop++;
+      document.getElementById("title").style.marginTop = marginTop + "px";
+    };
+
+    // Reduce margin top
+    const reducetopMargin = () => {
+      marginTop--;
+      document.getElementById("title").style.marginTop = marginTop + "px";
+    };
+
+    // Add image
+    const addImg = () => {
+      // const newImg = new Image();
+      // newImg.src = "";
+      // newImg.id = "output"
+      // newImg.width = "50";
+
+      // document.getElementById("images").appendChild(newImg);
+    };
+
     return {
       growTitle,
+      reduceTitle,
       watermark,
       textLeft,
       textRight,
-      underline,
-      italics,
       download,
       designName,
-      closeModal
+      closeModal,
+      addtopMargin,
+      reducetopMargin,
+      italics,
+      addImg
     };
   }
 };
