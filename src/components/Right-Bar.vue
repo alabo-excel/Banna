@@ -1,6 +1,5 @@
 <template>
   <div class="lg:flex w-screen">
-
     <!-- Welcome modal -->
 
     <div id="modal1" class="fixed z-10 inset-0 overflow-y-auto">
@@ -79,14 +78,14 @@
 
     <!-- Right sidebar component -->
 
-    <div class="rightbar shadow-lg p-8 pt-20 h-screen ml-8">
+    <div class="rightbar shadow-lg p-8 pt-20 h-screen ml-8 w-80">
       <div class="my-4">
         <p>Title:</p>
         <input
           v-model="designTitle"
           type="text"
           placeholder="Enter your article title"
-          class="rounded-md p-1 border-2 border-gray-400 bg-transparent"
+          class="rounded-md p-1 w-full border-2 border-gray-400 bg-transparent"
         />
       </div>
       <div class="my-4">
@@ -95,7 +94,7 @@
           v-model="designAuthor"
           type="text"
           placeholder="Enter your name"
-          class="rounded-md p-1 border-2 border-gray-400 bg-transparent"
+          class="rounded-md p-1 w-full border-2 border-gray-400 bg-transparent"
         />
       </div>
       <div class="my-4">
@@ -104,7 +103,7 @@
           v-model="designBg"
           type="text"
           placeholder="Eg(bg-blue-300)"
-          class="rounded-md p-1 border-2 border-gray-400 bg-transparent"
+          class="rounded-md w-full p-1 border-2 border-gray-400 bg-transparent"
         />
       </div>
       <div class="my-4">
@@ -112,8 +111,8 @@
         <input
           v-model="designBorder"
           type="text"
-                    placeholder="eg(border-blue-500)"
-          class="rounded-md p-1 border-2 border-gray-400 bg-transparent"
+          placeholder="eg(border-blue-500)"
+          class="rounded-md w-full p-1 border-2 border-gray-400 bg-transparent"
         />
       </div>
       <div class="my-4">
@@ -122,7 +121,7 @@
           v-model="designText"
           type="text"
           placeholder="text-white"
-          class="rounded-md p-1 border-2 border-gray-400 bg-transparent"
+          class="rounded-md w-full p-1 border-2 border-gray-400 bg-transparent"
         />
       </div>
       <div class="my-3">
@@ -153,7 +152,7 @@ export default {
     const designText = ref("");
     const designBorder = ref("");
 
-    const designImg = (e) => {
+    const designImg = e => {
       const newImg = new Image();
       newImg.width = "80";
       document.getElementById("images").appendChild(newImg);
@@ -172,7 +171,7 @@ export default {
       designText,
       designBorder,
       closeModal,
-      designImg,
+      designImg
     };
   }
 };

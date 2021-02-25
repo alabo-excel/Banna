@@ -20,5 +20,6 @@ export default {
 <style scoped>
 .dashboard {
   background-color: #f3f2f2;
+  overflow-x: hidden;
 }
 </style>
