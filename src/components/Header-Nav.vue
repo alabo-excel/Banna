@@ -7,6 +7,7 @@
         <input
           v-model="designName"
           type="text"
+          readonly
           class="bg-transparent w-20 border-0"
         />
         <span class="my-auto material-icons">keyboard_arrow_down</span>

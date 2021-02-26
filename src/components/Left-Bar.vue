@@ -7,7 +7,7 @@
       >
     </div>
     <div @click="growTitle" class="my-3">
-      <span class="material-icons hover:bg-gray-300 rounded-full p-1"
+      <span title="hello" class="material-icons hover:bg-gray-300 rounded-full p-1"
         >text_format</span
       >
     </div>
@@ -19,6 +19,11 @@
     <div @click="textLeft" class="my-3">
       <span class="material-icons hover:bg-gray-300 rounded-full p-1"
         >format_align_left</span
+      >
+    </div>
+     <div @click="textCenter" class="my-3">
+      <span class="material-icons hover:bg-gray-300 rounded-full p-1"
+        >format_align_center</span
       >
     </div>
     <div @click="textRight" class="my-3">
@@ -52,7 +57,7 @@
 <script>
 
 export default {
-  props: ['growTitle', 'reducetopMargin', 'addtopMargin', 'reduceTitle', 'watermark', 'textLeft', 'textRight', 'italics', 'addImg'],
+  props: ['growTitle', 'textCenter', 'reducetopMargin', 'addtopMargin', 'reduceTitle', 'watermark', 'textLeft', 'textRight', 'italics', 'addImg'],
 
 };
 </script>

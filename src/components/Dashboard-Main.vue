@@ -19,7 +19,7 @@ f<template>
         :addtopMargin="addtopMargin"
         :reducetopMargin="reducetopMargin"
         :italics="italics"
-        :addImg="addImg"
+        :textCenter="textCenter"
       />
 
       <!-- Design playground -->
@@ -44,7 +44,9 @@ f<template>
           <div class="m-2 flex justify-evenly" id="images"></div>
           <div class="float-right mr-5 py-4">
             <p v-if="designAuthor === ''"></p>
-            <p v-else :class="designText" class="text-sm">By {{ designAuthor }}</p>
+            <p v-else :class="designText" class="text-sm">
+              By {{ designAuthor }}
+            </p>
           </div>
           <div v-if="designAuthor === ''"></div>
           <div v-else id="powered" class="flex m-2 relative top-20">
@@ -153,14 +155,18 @@ export default {
 
     // text align left
     const textLeft = () => {
-      document.getElementById("title").classList.remove("text-right");
-      document.getElementById("title").classList.add("text-left");
+      document.getElementById("title").style.textAlign = "left";
+
+      // document.getElementById("title").classList.remove("text-right");
+      // document.getElementById("title").classList.add("text-left");
     };
 
     // text align right
     const textRight = () => {
-      document.getElementById("title").classList.remove("text-left");
-      document.getElementById("title").classList.add("text-right");
+      document.getElementById("title").style.textAlign = "right";
+
+      // document.getElementById("title").classList.remove("text-left");
+      // document.getElementById("title").classList.add("text-right");
     };
 
     // make text italic
@@ -209,14 +215,9 @@ export default {
       document.getElementById("title").style.marginTop = marginTop + "px";
     };
 
-    // Add image
-    const addImg = () => {
-      // const newImg = new Image();
-      // newImg.src = "";
-      // newImg.id = "output"
-      // newImg.width = "50";
-
-      // document.getElementById("images").appendChild(newImg);
+    // Text align center
+    const textCenter = () => {
+      document.getElementById("title").style.textAlign = "center";
     };
 
     return {
@@ -231,7 +232,7 @@ export default {
       addtopMargin,
       reducetopMargin,
       italics,
-      addImg
+      textCenter
     };
   }
 };
@@ -241,6 +242,7 @@ export default {
 .workspace {
   height: 28rem;
 }
+
 @media (max-width: 650px) {
   #leftbar {
     display: none;
